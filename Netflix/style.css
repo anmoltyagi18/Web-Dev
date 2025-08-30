@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/fe007cf7..._alpha_website_large.jpg");
+
+}
+
+.background-overlay {
+  height: 100vh;
+  background-image: url("../Netflix/assets/netflix-background-gs7hjuwvv2g0e9fj.jpg"); /* your image here */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+
+.background-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language {
+  background: transparent;
+  color: white;
+  border: 1px solid #aaa;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.sign-in {
+  background-color: #e50914;
+  border: none;
+  padding: 6px 16px;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  z-index: 1;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-content h2 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.email-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.email-form input[type="email"] {
+  padding: 12px;
+  width: 60%;
+  min-width: 250px;
+  max-width: 400px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+}
+
+.email-form button {
+  padding: 12px 20px;
+  background-color: #e50914;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
