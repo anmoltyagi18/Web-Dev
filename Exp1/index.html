@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ABESEC GZB - Bookstore</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --header-h: 80px;
+      --sidebar-w: 230px;
+      --gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f3f5fa;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 3px 10px rgba(0,0,0,.2);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      width: 55px; height: 55px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 22px; font-weight: bold;
+    }
+    .college { font-size: 20px; font-weight: 700; }
+    .top-nav a {
+      margin-left: 15px; text-decoration: none; color: white;
+      font-weight: 500; padding: 6px 12px; border-radius: 6px;
+      transition: background .3s;
+      cursor: pointer;
+    }
+    .top-nav a:hover { background: rgba(255,255,255,0.25); }
+
+    /* ===== Layout ===== */
+    .wrap { display: flex; height: calc(100% - var(--header-h)); }
+    .sidebar {
+      width: var(--sidebar-w);
+      background: #ffffffdd;
+      backdrop-filter: blur(6px);
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0,0,0,.05);
+    }
+    .sidebar h3 { margin-top: 0; color: #333; }
+    .nav-list { list-style: none; padding: 0; margin: 0; }
+    .nav-list li { margin: 10px 0; }
+    .nav-list a {
+      display: block;
+      padding: 10px 12px;
+      text-decoration: none;
+      color: #333;
+      background: #f7f9fc;
+      border-radius: 8px;
+      transition: all .3s;
+      cursor: pointer;
+    }
+    .nav-list a:hover {
+      background: var(--gradient);
+      color: white;
+      transform: translateX(4px);
+    }
+
+    /* ===== Main / Right frame ===== */
+    .main {
+      flex: 1;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      padding: 30px;
+      overflow-y: auto;
+      position: relative;
+    }
+    .page {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
+      animation: fadeIn .5s ease;
+    }
+    .hidden { display: none; }
+
+    /* ===== Buttons ===== */
+    button {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity .3s;
+    }
+    button:hover { opacity: 0.85; }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(10px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <!-- TOP FRAME -->
+  <header class="header">
+    <div class="brand">
+      <div class="logo">AG</div>
+      <div>
+        <div class="college">ABESEC GZB</div>
+        <div style="font-size:12px;opacity:.9">Online Bookstore</div>
+      </div>
+    </div>
+    <nav class="top-nav">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('login')">Login</a>
+      <a onclick="showPage('register')">Registration</a>
+      <a onclick="showPage('description')">Catalogue</a>
+      <a onclick="showPage('cart')">Cart</a>
+    </nav>
+  </header>
+
+  <!-- LEFT + RIGHT FRAME -->
+  <div class="wrap">
+    <!-- LEFT FRAME -->
+    <aside class="sidebar">
+      <h3>Catalogue</h3>
+      <ul class="nav-list">
+        <li><a onclick="showPage('cse')">CSE</a></li>
+        <li><a onclick="showPage('ece')">ECE</a></li>
+        <li><a onclick="showPage('eee')">EEE</a></li>
+        <li><a onclick="showPage('civil')">CIVIL</a></li>
+      </ul>
+    </aside>
+
+    <!-- RIGHT FRAME -->
+    <main class="main">
+      <!-- Home -->
+      <div id="home" class="page hidden">
+        <h1>ABESEC GZB - Home</h1>
+        <p>Welcome! Use the left catalogue to browse books, or use the top links to login/register.</p>
+      </div>
+
+      <!-- Login -->
+      <div id="login" class="page hidden">
+        <h1>Login</h1>
+        <form>
+          <label>Email:<br><input type="email"></label><br><br>
+          <label>Password:<br><input type="password"></label><br><br>
+          <button type="button">Login</button>
+        </form>
+      </div>
+
+      <!-- Registration -->
+      <div id="register" class="page hidden">
+        <h1>Registration</h1>
+        <form>
+          <label>Name:<br><input type="text"></label><br><br>
+          <label>Email:<br><input type="email"></label><br><br>
+          <label>Password:<br><input type="password"></label><br><br>
+          <button type="button">Register</button>
+        </form>
+      </div>
+
+      <!-- Catalogue / Description -->
+      <div id="description" class="page">
+        <h1>Welcome to ABESEC GZB Bookstore</h1>
+        <p>Click a branch (CSE/ECE/EEE/CIVIL) to view its catalogue in this area.</p>
+      </div>
+
+      <!-- CSE -->
+      <div id="cse" class="page hidden">
+        <h1>CSE Books</h1>
+        <ul>
+          <li>Introduction to Algorithms — Cormen <button>Add</button></li>
+          <li>Computer Networks — Tanenbaum <button>Add</button></li>
+          <li>Operating Systems — Silberschatz <button>Add</button></li>
+          <li>Database Concepts — Korth <button>Add</button></li>
+        </ul>
+      </div>
+
+      <!-- ECE -->
+      <div id="ece" class="page hidden">
+        <h1>ECE Books</h1>
+        <ul>
+          <li>Electronic Devices — Boylestad <button>Add</button></li>
+          <li>Communication Systems — Haykin <button>Add</button></li>
+          <li>Signals and Systems — Oppenheim <button>Add</button></li>
+        </ul>
+      </div>
+
+      <!-- EEE -->
+      <div id="eee" class="page hidden">
+        <h1>EEE Books</h1>
+        <ul>
+          <li>Power Systems — Grainger <button>Add</button></li>
+          <li>Electrical Machines — Fitzgerald <button>Add</button></li>
+        </ul>
+      </div>
+
+      <!-- CIVIL -->
+      <div id="civil" class="page hidden">
+        <h1>CIVIL Books</h1>
+        <ul>
+          <li>Strength of Materials — Hibbeler <button>Add</button></li>
+          <li>Structural Analysis — Hibbeler <button>Add</button></li>
+        </ul>
+      </div>
+
+      <!-- Cart -->
+      <div id="cart" class="page hidden">
+        <h1>Cart (demo)</h1>
+        <p>No items in cart. (Static demo)</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function showPage(id){
+      document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
